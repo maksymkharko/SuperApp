@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const linkNameInput = document.getElementById('link-name');
     const linkUrlInput = document.getElementById('link-url');
     const linkDescriptionInput = document.getElementById('link-description');
+    const pasteUrlBtn = document.getElementById('paste-url-btn');
 
     let isEditMode = false;
     let isDragging = false;
@@ -146,6 +147,18 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('app2Links', JSON.stringify(links));
             loadLinks();
             linkModal.classList.add('hidden');
+        }
+    });
+
+    // Вставка ссылки из буфера обмена
+    pasteUrlBtn.addEventListener('click', async () => {
+        try {
+            const text = await navigator.clipboard.readText();
+            if (text) {
+                linkUrlInput.value = text;
+            }
+        } catch (error) {
+            console.error('Ошибка при вставке из буфера обмена:', error);
         }
     });
 
