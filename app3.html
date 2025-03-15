@@ -17,24 +17,26 @@
 
     <!-- Основной контент -->
     <main>
-        <form id="passwordForm">
-            <div class="input-group">
-                <label for="birthdate">Дата рождения (ГГГГММДД):</label>
-                <input type="text" id="birthdate" name="birthdate" placeholder="Введите дату" required>
-            </div>
+        <div class="container">
+            <form id="passwordForm">
+                <div class="input-group">
+                    <label for="birthdate">Дата рождения (ГГГГММДД):</label>
+                    <input type="text" id="birthdate" name="birthdate" placeholder="Введите дату" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="code">Код верификации:</label>
+                    <input type="text" id="code" name="code" placeholder="Введите код" required>
+                </div>
+                
+                <button type="submit">Сгенерировать Пароль</button>
+            </form>
             
-            <div class="input-group">
-                <label for="code">Код верификации:</label>
-                <input type="text" id="code" name="code" placeholder="Введите код" required>
+            <!-- Блок с результатом -->
+            <div id="result">
+                <span id="passwordText"></span>
+                <button id="copyButton"><i class="fas fa-copy"></i></button>
             </div>
-            
-            <button type="submit">Сгенерировать Пароль</button>
-        </form>
-        
-        <!-- Блок с результатом -->
-        <div id="result">
-            <span id="passwordText"></span>
-            <button id="copyButton"><i class="fas fa-copy"></i></button>
         </div>
     </main>
 
