@@ -26,7 +26,7 @@ document.getElementById('passwordForm').addEventListener('submit', function(even
     }
     
     // Вывод результата
-    document.getElementById('passwordText').innerText = 'Ваш пароль: ' + password;
+    document.getElementById('passwordText').innerText = password;
     document.getElementById('result').style.display = 'flex';
     
     // Сохранение данных в localStorage
@@ -36,7 +36,7 @@ document.getElementById('passwordForm').addEventListener('submit', function(even
 
 // Копирование пароля
 document.getElementById('copyButton').addEventListener('click', function() {
-    const passwordText = document.getElementById('passwordText').innerText.replace('Ваш пароль: ', '');
+    const passwordText = document.getElementById('passwordText').innerText;
     navigator.clipboard.writeText(passwordText).then(() => {
         alert('Пароль скопирован в буфер обмена!');
     });
