@@ -41,6 +41,17 @@ function openModal(index = null) {
         document.getElementById('usefulLink').value = car.usefulLink || '';
     } else {
         title.textContent = 'Добавить авто';
+        // Очистка полей при добавлении нового авто
+        document.getElementById('carName').value = '';
+        document.getElementById('carMileage').value = '';
+        document.getElementById('carVin').value = '';
+        document.getElementById('carPlate').value = '';
+        document.getElementById('carPurchaseDate').value = '';
+        document.getElementById('lastOilChangeMileage').value = '';
+        document.getElementById('lastTimingBeltMileage').value = '';
+        document.getElementById('insuranceEndDate').value = '';
+        document.getElementById('maintenanceEndDate').value = '';
+        document.getElementById('usefulLink').value = '';
     }
     modal.style.display = 'flex';
 }
@@ -116,7 +127,7 @@ function calculateKmLeft(lastChange, currentMileage) {
 }
 
 // Инициализация
-document.getElementById('add-button').addEventListener('click', () => openModal());
+document.querySelector('.add-button').addEventListener('click', () => openModal());
 document.getElementById('saveCarButton').addEventListener('click', saveCar);
 document.querySelector('.edit-button').addEventListener('click', () => {
     isEditing = !isEditing;
