@@ -10,6 +10,12 @@ document.getElementById('passwordForm').addEventListener('submit', function(even
         return;
     }
     
+    // Проверка, что введены только цифры
+    if (!/^\d+$/.test(birthdate) || !/^\d+$/.test(code)) {
+        alert('Пожалуйста, используйте только цифры.');
+        return;
+    }
+    
     // Генерация пароля
     let password = '';
     for (let i = 0; i < code.length; i++) {
@@ -20,11 +26,20 @@ document.getElementById('passwordForm').addEventListener('submit', function(even
     }
     
     // Вывод результата
-    document.getElementById('result').innerText = 'Ваш пароль: ' + password;
+    document.getElementById('passwordText').innerText = 'Ваш пароль: ' + password;
+    document.getElementById('result').style.display = 'flex';
     
     // Сохранение данных в localStorage
     localStorage.setItem('birthdate', birthdate);
     localStorage.setItem('code', code);
+});
+
+// Копирование пароля
+document.getElementById('copyButton').addEventListener('click', function() {
+    const passwordText = document.getElementById('passwordText').innerText.replace('Ваш пароль: ', '');
+    navigator.clipboard.writeText(passwordText).then(() => {
+        alert('Пароль скопирован в буфер обмена!');
+    });
 });
 
 // Загрузка сохраненных данных при загрузке страницы
