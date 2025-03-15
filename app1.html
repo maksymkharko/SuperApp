@@ -1,65 +1,73 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мои Авто</title>
-    <link rel="stylesheet" href="src/styles/app1.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мои авто</title>
+  <link rel="stylesheet" href="src/styles/app1.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Верхняя панель -->
+  <div class="container">
     <div class="top-bar">
-        <button class="back-button" onclick="window.location.href='index.html'">←</button>
-        <div class="actions">
-            <button class="edit-button">✏️</button>
-            <button class="add-button">➕</button>
-        </div>
+      <button id="back-button"><i class="fas fa-arrow-left"></i> Назад</button>
+      <div class="top-bar-buttons">
+        <button id="edit-button"><i class="fas fa-pencil-alt"></i></button>
+        <button id="add-button"><i class="fas fa-plus"></i></button>
+      </div>
     </div>
-
-    <!-- Заголовок -->
     <h1>Мои авто</h1>
+    <ul id="car-list">
+      </ul>
+  </div>
 
-    <!-- Список автомобилей -->
-    <div class="car-list" id="carList">
-        <!-- Автомобили будут добавлены сюда динамически -->
+  <div id="car-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Автомобиль</h2>
+      <form id="car-form">
+        <input type="hidden" id="car-id">
+        <label for="name">Название:</label>
+        <input type="text" id="name" required>
+        <label for="mileage">Пробег:</label>
+        <input type="number" id="mileage" required>
+        <label for="vin">VIN:</label>
+        <input type="text" id="vin">
+        <label for="plate">Номер:</label>
+        <input type="text" id="plate">
+        <label for="purchaseDate">Дата покупки:</label>
+        <input type="date" id="purchaseDate">
+        <label for="lastOilChangeMileage">Пробег посл. зам. масла:</label>
+        <input type="number" id="lastOilChangeMileage">
+        <label for="lastTimingBeltMileage">Пробег посл. зам. ГРМ:</label>
+        <input type="number" id="lastTimingBeltMileage">
+        <label for="insuranceEndDate">Страховка до:</label>
+        <input type="date" id="insuranceEndDate">
+        <label for="maintenanceEndDate">ТО до:</label>
+        <input type="date" id="maintenanceEndDate">
+        <label for="usefulLink">Полезная ссылка:</label>
+        <input type="url" id="usefulLink">
+        <button type="submit">Сохранить</button>
+      </form>
     </div>
+  </div>
 
-    <!-- Модальное окно добавления/редактирования -->
-    <div class="modal" id="addEditModal">
-        <div class="modal-content">
-            <h2 id="modalTitle">Добавить авто</h2>
-            <input type="text" id="carName" placeholder="Название машины">
-            <input type="number" id="carMileage" placeholder="Актуальный пробег">
-            <input type="text" id="carVin" placeholder="VIN">
-            <input type="text" id="carPlate" placeholder="Номер машины">
-            <input type="date" id="carPurchaseDate" placeholder="Дата покупки">
-            <input type="number" id="lastOilChangeMileage" placeholder="Пробег на последней замене масла">
-            <input type="number" id="lastTimingBeltMileage" placeholder="Пробег на последней замене ГРМ">
-            <input type="date" id="insuranceEndDate" placeholder="Дата окончания страховки">
-            <input type="date" id="maintenanceEndDate" placeholder="Дата окончания ТО">
-            <input type="url" id="usefulLink" placeholder="Полезная ссылка">
-            <button id="saveCarButton">Сохранить</button>
-            <button class="close-button" onclick="closeModal()">Закрыть</button>
-        </div>
+  <div id="view-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-view-button">&times;</span>
+      <h2 id="view-name"></h2>
+      <p>Пробег: <span id="view-mileage" class="editable"></span></p>
+      <p>VIN: <span id="view-vin"></span></p>
+      <p>Номер: <span id="view-plate"></span></p>
+      <p>Дата покупки: <span id="view-purchaseDate"></span></p>
+      <p>Пробег посл. зам. масла: <span id="view-lastOilChangeMileage"></span></p>
+      <p>Пробег посл. зам. ГРМ: <span id="view-lastTimingBeltMileage"></span></p>
+      <p>Страховка до: <span id="view-insuranceEndDate"></span></p>
+      <p>ТО до: <span id="view-maintenanceEndDate"></span></p>
+      <p>Полезная ссылка: <a id="view-usefulLink" target="_blank"></a></p>
     </div>
+  </div>
 
-    <!-- Модальное окно просмотра -->
-    <div class="modal" id="viewModal">
-        <div class="modal-content">
-            <h2 id="viewCarName"></h2>
-            <p><strong>Пробег:</strong> <span id="viewCarMileage"></span></p>
-            <p><strong>VIN:</strong> <span id="viewCarVin"></span></p>
-            <p><strong>Номер:</strong> <span id="viewCarPlate"></span></p>
-            <p><strong>Дата покупки:</strong> <span id="viewCarPurchaseDate"></span></p>
-            <p><strong>Пробег на замене масла:</strong> <span id="viewLastOilChangeMileage"></span></p>
-            <p><strong>Пробег на замене ГРМ:</strong> <span id="viewLastTimingBeltMileage"></span></p>
-            <p><strong>Страховка до:</strong> <span id="viewInsuranceEndDate"></span></p>
-            <p><strong>ТО до:</strong> <span id="viewMaintenanceEndDate"></span></p>
-            <p><strong>Ссылка:</strong> <a id="viewUsefulLink" target="_blank">Перейти</a></p>
-            <button class="close-button" onclick="closeViewModal()">Закрыть</button>
-        </div>
-    </div>
-
-    <script src="src/scripts/app1.js"></script>
+  <script src="src/scripts/app1.js"></script>
 </body>
 </html>
