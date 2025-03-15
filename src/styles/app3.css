@@ -110,7 +110,7 @@ button:hover {
     font-size: 18px;
     font-weight: 500;
     color: #ff8c42; /* Оранжевый цвет */
-    display: flex;
+    display: none; /* Скрыт по умолчанию */
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -118,6 +118,12 @@ button:hover {
     background-color: #3c3c3c; /* Тёмный фон */
     border-radius: 8px; /* Закруглённые углы */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Тень */
+}
+
+#passwordText {
+    font-size: 32px; /* Большие цифры */
+    font-weight: bold;
+    color: #ff8c42; /* Оранжевый цвет */
 }
 
 #copyButton {
@@ -149,7 +155,7 @@ button:hover {
         font-size: 14px;
     }
 
-    #result {
-        font-size: 16px;
+    #passwordText {
+        font-size: 28px;
     }
 }
