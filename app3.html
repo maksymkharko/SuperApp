@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Генератор Пароля</title>
+    <title>TrenkWalder</title>
     <link rel="stylesheet" href="src/styles/app3.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Кнопка "Назад" -->
-        <div class="header">
-            <a href="index.html" class="back-button">← Назад</a>
-            <h1>Генератор Пароля</h1>
-        </div>
+    <!-- Кнопка "Назад" -->
+    <a href="index.html" class="back-button">← Назад</a>
 
-        <form id="passwordForm">
-            <label for="birthdate">Дата рождения (ГГГГММДД):</label>
-            <input type="text" id="birthdate" name="birthdate" required>
-            
-            <label for="code">Проверочный код:</label>
-            <input type="text" id="code" name="code" required>
-            
-            <button type="submit">Сгенерировать Пароль</button>
-        </form>
+    <!-- Заголовок -->
+    <h1>TrenkWalder</h1>
+
+    <!-- Форма -->
+    <form id="passwordForm">
+        <label for="birthdate">Дата рождения (ГГГГММДД):</label>
+        <input type="text" id="birthdate" name="birthdate" required>
         
-        <div id="result"></div>
-    </div>
+        <label for="code">Проверочный код:</label>
+        <input type="text" id="code" name="code" required>
+        
+        <button type="submit">Сгенерировать Пароль</button>
+    </form>
+    
+    <!-- Результат -->
+    <div id="result"></div>
+
     <script src="src/scripts/app3.js"></script>
 </body>
 </html>
