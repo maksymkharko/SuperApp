@@ -10,13 +10,12 @@
 </head>
 <body>
     <!-- Шапка -->
-<!-- Шапка -->
-<header class="header">
-    <a href="index.html" class="back-btn">
-        <i class="fas fa-chevron-left"></i> Назад
-    </a>
-    <h1 class="header-title">Закладки</h1>
-</header>
+    <header class="header">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-chevron-left"></i> Назад
+        </a>
+        <h1 class="header-title">Закладки</h1>
+    </header>
 
     <!-- Верхняя панель -->
     <div class="top-bar">
@@ -36,7 +35,12 @@
         <div class="modal-content">
             <h2>Добавить ссылку</h2>
             <input type="text" id="link-name" placeholder="Название ссылки" required>
-            <input type="url" id="link-url" placeholder="URL ссылки" required>
+            <div class="url-input-container">
+                <input type="url" id="link-url" placeholder="URL ссылки" required>
+                <button id="paste-url-btn" class="paste-url-btn">
+                    <i class="fas fa-paste"></i>
+                </button>
+            </div>
             <textarea id="link-description" placeholder="Краткое описание"></textarea>
             <div class="modal-buttons">
                 <button id="cancel-btn" class="cancel-btn">Отмена</button>
