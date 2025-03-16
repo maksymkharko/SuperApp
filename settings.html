@@ -442,6 +442,35 @@
             margin-left: 8px;
             opacity: 0.5;
         }
+
+        .reset-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px;
+            background: rgba(255, 59, 48, 0.1);
+            border: 1px solid rgba(255, 59, 48, 0.2);
+            border-radius: 12px;
+            color: #FF3B30;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .reset-button:hover {
+            background: rgba(255, 59, 48, 0.15);
+        }
+
+        .reset-button:active {
+            transform: scale(0.98);
+            background: rgba(255, 59, 48, 0.2);
+        }
+
+        .reset-button i {
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -484,6 +513,17 @@
                     </div>
                     <i class="fas fa-chevron-right"></i>
                 </a>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <div class="settings-item">
+                <div class="settings-item-content">
+                    <button class="reset-button" onclick="resetHomeScreen()">
+                        <i class="fas fa-rotate-left"></i>
+                        <span>Вернуть домашний экран до заводских настроек</span>
+                    </button>
+                </div>
             </div>
         </div>
     </main>
@@ -699,6 +739,43 @@
                     alert('Ошибка при импорте данных. Проверьте формат данных.');
                 }
             });
+        }
+
+        function resetHomeScreen() {
+            if (confirm('Вы уверены, что хотите вернуть домашний экран до заводских настроек? Все ваши настройки будут удалены.')) {
+                // Удаляем все настройки домашнего экрана из localStorage
+                localStorage.removeItem('apps');
+                localStorage.removeItem('hiddenApps');
+                localStorage.removeItem('indexPageTitle');
+                
+                // Показываем уведомление об успешном сбросе
+                showNotification('Настройки домашнего экрана сброшены');
+            }
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            
+            // Стили для уведомления
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.left = '50%';
+            notification.style.transform = 'translateX(-50%)';
+            notification.style.background = 'rgba(0, 0, 0, 0.8)';
+            notification.style.color = 'white';
+            notification.style.padding = '12px 24px';
+            notification.style.borderRadius = '12px';
+            notification.style.zIndex = '9999';
+            notification.style.animation = 'fadeInOut 2s forwards';
+            
+            document.body.appendChild(notification);
+            
+            // Удаляем уведомление через 2 секунды
+            setTimeout(() => {
+                notification.remove();
+            }, 2000);
         }
     </script>
 </body>
