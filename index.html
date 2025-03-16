@@ -6,7 +6,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Меню</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css" rel="stylesheet">
     <style>
         /* Основные переменные */
         :root {
@@ -24,6 +26,19 @@
             
             /* Анимации */
             --transition-speed: 0.2s;
+            --primary-gradient: linear-gradient(135deg, #6e8efb, #4776e6);
+            --secondary-gradient: linear-gradient(135deg, #ff9966, #ff5e62);
+            --success-gradient: linear-gradient(135deg, #2af598, #009efd);
+            --warning-gradient: linear-gradient(135deg, #ffd452, #ff6b6b);
+            --info-gradient: linear-gradient(135deg, #4facfe, #00f2fe);
+            --dark-gradient: linear-gradient(135deg, #2c3e50, #3498db);
+            
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.14);
+            
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
         }
 
         /* Сброс стилей */
@@ -36,7 +51,7 @@
 
         /* Основные стили */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--background-primary);
             color: var(--text-primary);
             min-height: 100vh;
@@ -885,15 +900,25 @@
             
             // Здоровье
             'fa-heart', 'fa-stethoscope', 'fa-hospital', 'fa-kit-medical', 'fa-pills',
-            'fa-prescription-bottle', 'fa-syringe', 'fa-brain', 'fa-eye', 'fa-tooth'
+            'fa-prescription-bottle', 'fa-syringe', 'fa-brain', 'fa-eye', 'fa-tooth',
+
+            // Material Design иконки
+            'mdi mdi-home', 'mdi mdi-account', 'mdi mdi-cog', 'mdi mdi-bell',
+            'mdi mdi-magnify', 'mdi mdi-heart', 'mdi mdi-star', 'mdi mdi-plus',
+            'mdi mdi-menu', 'mdi mdi-arrow-left', 'mdi mdi-arrow-right',
+            'mdi mdi-chevron-down', 'mdi mdi-dots-vertical', 'mdi mdi-content-save',
+            'mdi mdi-delete', 'mdi mdi-pencil', 'mdi mdi-refresh', 'mdi mdi-check',
+            'mdi mdi-file', 'mdi mdi-folder', 'mdi mdi-file-pdf-box', 'mdi mdi-file-image',
+            'mdi mdi-file-music', 'mdi mdi-email', 'mdi mdi-message', 'mdi mdi-phone',
+            'mdi mdi-video', 'mdi mdi-share'
         ];
 
         // Базовые приложения
         const defaultApps = [
             { name: 'Мои авто', icon: 'fa-car', link: 'app1.html' },
             { name: 'Закладки', icon: 'fa-bookmark', link: 'app2.html' },
-            { name: 'Trenk', icon: 'fa-key', link: 'app3.html' },
-            { name: 'Гоогле', icon: 'fa-keyboard', link: 'app4.html' },
+            { name: 'Trenk', icon: 'fa-unlock', link: 'app3.html' },
+            { name: 'Гоогле', icon: 'fa-earth-americas', link: 'app4.html' },
             { name: 'app5', icon: 'fa-bell', link: 'app5.html' },
             { name: 'app6', icon: 'fa-calendar', link: 'app6.html' },
             { name: 'app7', icon: 'fa-chart-line', link: 'app7.html' },
